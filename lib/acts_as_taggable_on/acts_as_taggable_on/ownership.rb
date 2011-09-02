@@ -35,7 +35,7 @@ module ActsAsTaggableOn::Taggable
         else
           base_tags.where([%(#{ActsAsTaggableOn::Tagging.table_name}.context = ? AND
                              #{ActsAsTaggableOn::Tagging.table_name}.tagger_id = ? AND
-                             #{ActsAsTaggableOn::Tagging.table_name}.tagger_type = ?), context.to_s, owner.id, owner.class.to_s]).all          
+                             #{ActsAsTaggableOn::Tagging.table_name}.tagger_type = ?), context.to_s, owner.id, owner.class.base_class.to_s]).all          
         end
       end
 
